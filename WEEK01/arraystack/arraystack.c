@@ -6,7 +6,7 @@
 
 ArrayStack* createArrayStack(int maxElementCount)
 {
-    if(maxElementCount < 0)
+    if(maxElementCount <= 0)
         return (NULL);
     ArrayStack *pStack = (ArrayStack *)malloc(sizeof(ArrayStack));
     if(pStack == NULL)
@@ -61,7 +61,7 @@ void deleteArrayStack(ArrayStack* pStack)
     if (pStack == NULL)
 		return ;
 	free(pStack->pElement);
-	free(pStack);
+    free(pStack);
 }
 
 int isArrayStackFull(ArrayStack* pStack)
@@ -73,7 +73,7 @@ int isArrayStackFull(ArrayStack* pStack)
 
 int isArrayStackEmpty(ArrayStack* pStack)
 {
-    if(pStack->currentElementCount == 0 || pStack->maxElementCount == 0)
+    if(pStack->currentElementCount == 0)
         return (TRUE);
     return (FALSE);
 }
@@ -87,7 +87,7 @@ void displayArrayStack(ArrayStack* pStack)
 	printf("\n");
 	for (int i = 0; i < pStack->currentElementCount; ++i)
 	{
-		printf("[%d] ", pStack->pElement[i].data);
+		printf("[%c] ", pStack->pElement[i].data);
 	}
 	printf("\n");
 	for (int i = 0; i < pStack->currentElementCount; ++i)

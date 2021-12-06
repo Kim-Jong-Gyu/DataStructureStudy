@@ -2,12 +2,11 @@
 
 int main()
 {
-    int max = 6;
     LinkedStack *arr;
 	StackNode node;
     StackNode *peek;
 
-    arr = createLinkedStack(max);
+    arr = createLinkedStack();
     
     for (int i = 0; i < max ; i++)
     {

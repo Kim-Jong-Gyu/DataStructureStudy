@@ -94,5 +94,3 @@ void displayLinkedStack(LinkedStack* pStack)
 		printf("====");
 	printf("\n");
 }
-
-

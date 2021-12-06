@@ -13,13 +13,13 @@ int main()
 	printf("maxElementCount: %d currentElementCount: %d pElement:%p\n", pstack->maxElementCount, pstack->currentElementCount, pstack->pElement);
 
 	printf("\ntest\n");
-	element.data = 'A';
+	element.data = 'a';
 	pushAS(pstack, element);
 	
-	element.data = 'B';
+	element.data = 'b';
 	pushAS(pstack, element);
 
-	element.data = 'C';
+	element.data = 'c';
 	pushAS(pstack, element);
 	displayArrayStack(pstack);
 
@@ -41,4 +41,5 @@ int main()
 	printf("isEMPTY? %d\n",isArrayStackEmpty(pstack));
 	
 	deleteArrayStack(pstack);
+	printf("%p\n", pstack);
 }
