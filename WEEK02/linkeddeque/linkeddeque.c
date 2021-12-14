@@ -102,10 +102,6 @@ DequeNode* peekFrontLD(LinkedDeque* pDeque)
     if(isLinkedDequeEmpty(pDeque))
         return (NULL);
     DequeNode *ret_node;
-    ret_node = (DequeNode *)malloc(sizeof(DequeNode));
-    // if(ret_node == NULL)
-    //     return (NULL);
-    // *ret_node = *(pDeque->pFrontNode);
     ret_node = pDeque->pFrontNode;
     return(ret_node);
 }

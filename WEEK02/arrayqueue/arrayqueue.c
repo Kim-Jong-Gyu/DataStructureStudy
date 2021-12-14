@@ -9,8 +9,8 @@ ArrayQueue* createArrayQueue(int maxElementCount)
     if(pQueue == NULL)
         return (NULL);
     pQueue->currentElementCount = 0;
-    pQueue->front = 0;
-    pQueue->rear = 0;
+    pQueue->front = -1;
+    pQueue->rear = -1;
     pQueue->maxElementCount = maxElementCount;
     pQueue->pElement = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode) * maxElementCount);
     if(pQueue->pElement == NULL)
@@ -43,7 +43,7 @@ ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
     result = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
     if (result == NULL)
         return (NULL);
-    pQueue->pElement[pQueue->front].data = result->data;
+    result->data = pQueue->pElement[pQueue->front + 1].data;
     pQueue->currentElementCount--;
     pQueue->front++;
     return(result);
@@ -59,7 +59,7 @@ ArrayQueueNode *peekAQ(ArrayQueue* pQueue)
     result = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
     if (result == NULL)
         return (NULL);
-    pQueue->pElement[pQueue->front].data = result->data;
+    result->data = pQueue->pElement[pQueue->front + 1].data;
     return(result);
 }
 void deleteArrayQueue(ArrayQueue* pQueue)
@@ -89,7 +89,7 @@ void displayArrayQueue(ArrayQueue* pQueue)
 	for (int i = 0; i < pQueue->currentElementCount; ++i)
 		printf("====");
 	printf("\n");
-	for (int i = 0; i < pQueue->currentElementCount; ++i)
+	for (int i = pQueue->front + 1; i < pQueue->rear; ++i)
 	{
 		printf("[%c] ", pQueue->pElement[i].data);
 	}
