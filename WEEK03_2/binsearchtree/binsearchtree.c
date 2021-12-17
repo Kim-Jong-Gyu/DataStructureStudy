@@ -146,8 +146,6 @@ BinSearchTreeNode* searchRecursiveBST(BinSearchTree* pBinSearchTree, int key)
 
 BinSearchTreeNode* searchInternalRecursiveBST(BinSearchTreeNode* pTreeNode, int key)
 {
-    BinSearchTreeNode *pReturn = NULL;
-
     if(!pTreeNode)
         return (NULL);
     if(pTreeNode->key > key)
